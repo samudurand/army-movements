@@ -1,33 +1,40 @@
 // Import stylesheets
-import Konva from 'konva';
+import anime from 'animejs/lib/anime.es.js';
 import './style.css';
 
-// Write TypeScript code!
 const appDiv: HTMLElement = document.getElementById('app');
 appDiv.innerHTML = `<h1>TypeScript Starter</h1><div id="container"></div>`;
 
-var stage = new Konva.Stage({
-  container: 'container',   // id of container <div>
-  width: 500,
-  height: 500
+///////////////////////////////////
+
+anime({
+  targets: '#square',
+  translateX: 200,
+  translateY: 200,
+  backgroundColor: '#FFF',
+  easing: 'linear',
+  duration: 2000
 });
 
-var layer = new Konva.Layer();
+//////////// With animation
 
-var circle = new Konva.Circle({
-  x: stage.width() / 2,
-  y: stage.height() / 2,
-  radius: 70,
-  fill: 'red',
-  stroke: 'black',
-  strokeWidth: 4
-});
+// var amplitude = 100;
+// var period = 2000;
+// // in ms
+// var centerX = stage.width() / 2;
 
-// add the shape to the layer
-layer.add(circle);
+// var anim = new Konva.Animation(function (frame) {
+//   circle.x(
+//     amplitude * Math.sin((frame.time * 2 * Math.PI) / period) + centerX
+//   );
+// }, layer);
 
-// add the layer to the stage
-stage.add(layer);
+// anim.start();
 
-// draw the image
-layer.draw();
+///////////// with tween
+
+// circle.to({
+//   duration : 3,
+//   x: stage.width() / 4
+// });
+
